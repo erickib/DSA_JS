@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Structure and Algorithms</title>
+</head>
+<body>
+    <h3>all scripts can be found in their respectives html files</h3>
+<label for="select_algorithm">
+<select id="select_algorithm" onchange="onChangeSelectAlgorithm(event)">
+    <option value="-">choose an algorithm</option>
+    <option value="binary_search.html">binary search</option>
+    <option value="linear_search.html" selected>linear search</option>
+    <option value="linked_list">linked list</option>
+    <option value="merge_sort">merge sort</option>
+</select>
+<br />
+<iframe id="iframe_algorithm" src="/index.html" width="500" height="500"></iframe>
+</label>
+</body>
+</html>
+
+<script>
+function onChangeSelectAlgorithm(event) {
+    if (event.target.value == '-') return
+    let iframe = document.getElementById("iframe_algorithm")
+    console.log(iframe)
+    iframe.src=event.target.value
+}
+window.addEventListener('load', function(event) {
+    const element = document.getElementById('select_algorithm');
+    const ev = new Event('change', { bubbles: true });
+    element.dispatchEvent(ev); 
+});
+</script>
